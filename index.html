@@ -171,6 +171,8 @@
         function initialise() {
         	canvas.addEventListener("touchstart", doTouchStart, false);
         	canvas.addEventListener("mousedown", doMouseDown, false);
+        	canvas.addEventListener("touchstart", imagedata, false);
+        	canvas.addEventListener("mousedown", imagedata, false);
         	
         }
         function doTouchStart() {
