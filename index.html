@@ -146,7 +146,35 @@
 		<p>This is the footer!</p>
 	</div><!-- /footer -->
      </div><!-- /page -->
-   </body>
+     </body>
+<head>
+ <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
+        var canvas = document.getElementById('myCanvas');
+        var context = canvas.getContext("2d");
+        context.font = '20pt Calibri';
+        context.fillStyle = "black";
+        context.fillText("Image will go here", 10, 20);
+        
+        function initialise() {
+        	canvas.addEventListener("touchstart", doTouchStart, false);
+        	canvas.addEventListener("mousedown", doMouseDown, false);
+        	
+        }
+        function doTouchStart() {
+        	event.preventDefault();
+        	
+        	canvas_x = event.targetTouches[0].pageX;
+        	canvas_y = event.targetTouches[0].pageY;
+        	alert("X=" + canvas_x + "Y=" + canvas_Y);
+        
+        }
+        function doMouseDown() {
+        	canvas_x = event.pageX;
+        	canvas_y = event.pageY;
+        	alert("X=" + canvas_x + "Y=" + canvas_y);
+        }
+      </script>
+</head>
  <body onLoad=initialise()>
  	
   <div data-role="page" id="page2">
@@ -160,35 +188,8 @@
       </div>
       <div id="messageDisplayArea"></div>
       
-      <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
-      <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
-        var canvas = document.getElementById('myCanvas');
-        var context = canvas.getContext("2d");
-        context.font = '20pt Calibri';
-        context.fillStyle = "black";
-        context.fillText("Image will go here", 10, 20);
-        
-        //function initialise() {
-        	//var canvas = document.getElementById("myCanvas");
-        	//var context =canvas.GetContext("2d");
-        	//canvas.addEventListener("touchstart", doTouchStart, false);
-        	//canvas.addEventListener("mousedown", doMouseDown, false);
-        	
-        }
-        //function doTouchStart() {
-        	//event.preventDefault();
-        	
-        	//canvas_x = event.targetTouches[0].pageX;
-        	//canvas_y = event.targetTouches[0].pageY;
-        	//alert("X=" + canvas_x + "Y=" + canvas_Y);
-        
-        }
-        //function doMouseDown() {
-        	//canvas_x = event.pageX;
-        	//canvas_y = event.pageY;
-        	//alert("X=" + canvas_x + "Y=" + canvas_y);
-        }
-      </script>
+    	<canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+     
 
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">
