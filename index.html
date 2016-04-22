@@ -147,8 +147,21 @@
 	</div><!-- /footer -->
      </div><!-- /page -->
      </body>
-<head>
- <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
+ <body onLoad=initialise()>
+ 	
+  <div data-role="page" id="page2">
+    <div data-role="header">
+    <h1>Touch Analysis</h1></div><!-- /header -->
+    <div data-role="content">	
+      <h2>Push button to take picture.</h2>
+      <div>
+        Press orange button to create or choose image file:
+        <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
+      </div>
+      <div id="messageDisplayArea"></div>
+      
+    	<canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+    	<script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext("2d");
         context.font = '20pt Calibri';
@@ -174,21 +187,6 @@
         	alert("X=" + canvas_x + "Y=" + canvas_y);
         }
       </script>
-</head>
- <body onLoad=initialise()>
- 	
-  <div data-role="page" id="page2">
-    <div data-role="header">
-    <h1>Touch Analysis</h1></div><!-- /header -->
-    <div data-role="content">	
-      <h2>Push button to take picture.</h2>
-      <div>
-        Press orange button to create or choose image file:
-        <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
-      </div>
-      <div id="messageDisplayArea"></div>
-      
-    	<canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
      
 
     </div><!-- /content -->
