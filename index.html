@@ -147,7 +147,8 @@
 	</div><!-- /footer -->
      </div><!-- /page -->
    </body>
- <body>
+ <body onLoad=initialise()>
+ 	
   <div data-role="page" id="page2">
     <div data-role="header">
     <h1>Touch Analysis</h1></div><!-- /header -->
@@ -166,6 +167,20 @@
         context.font = '20pt Calibri';
         context.fillStyle = "black";
         context.fillText("Image will go here", 10, 20);
+        
+        function initialise() {
+        	var canvas = document.getElementById("myCanvas");
+        	var context =canvas.GetContext("2d");
+        	canvas.addEventListener("touchstart", doTouchStart, false);
+        	
+        }
+        function doTouchStart() {
+        	event.preventDefault();
+        	
+        	canvas_x = event.targetTouches[0].pageX;
+        	canvas_y = event.targetTouches[0].pageY;
+        	alert("X=" + canvas_x + "Y=" + canvas_Y);
+        }
       </script>
 
     </div><!-- /content -->
