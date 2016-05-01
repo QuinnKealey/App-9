@@ -191,11 +191,12 @@
         }
         function imagedata() {
         	var imgData=context.getImageData(canvas_x - 10,canvas_y - 10, 10, 10 )
-        	for (var i=0; i<imgData.data.length; i+=4) {
-        		imgData.data [i+0]=0;
-        		imgData.data [i+1]=[i+1];
-        		imgData.data [i+2]=0;
-        		imgData.data [i+3]=[i+3];
+        	var data = imgData.data;
+        	for (var i = 0, n = data.length; i < n; i += 4) {
+        		 data [i+0]=[i+0]-[i+0];
+        		 data [i+1]=[i+1];
+        		 data [i+2]=[i+2]-[i+2];
+        		 data [i+3]=[i+3];
         	}
         	context2.putImageData(imgData,10,70);
         	alert(imgData.data [i+1], 50,50);
