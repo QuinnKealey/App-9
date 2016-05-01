@@ -14,7 +14,9 @@
  
   Authors in chronological order of contribution:
   Author 1: Timothy E. Riedel
-  Author 2:
+  Author 2: Quinn Kealey
+  Author 3: Amy
+  Author 4: Sarah 
   
   References:
   http://docs.webplatform.org/wiki/concepts/programming/drawing_images_onto_canvas#Loading_the_image_programmatically
@@ -168,43 +170,63 @@
         context.fillStyle = "black";
         context.fillText("Image will go here", 10, 20);
         context.fillText(imgData,50,50);
-        
+        //This function tells the computer to wait to run the functions doTouchStart, doMouseDown, and imagedata until a click or creen tough occurs
         function initialise() {
+        	//Tells computer to run doTouchStart when screen is touched
         	canvas.addEventListener("touchstart", doTouchStart, false);
+        	//Tells compuetr to run doMouseDown when screen is clicked
         	canvas.addEventListener("mousedown", doMouseDown, false);
+        	//Tells computer to run imagedata when screen is touched
         	canvas.addEventListener("touchstart", imagedata, false);
+        	//Tells the computer to run imagedata when screen is clicked
         	canvas.addEventListener("mousedown", imagedata, false);
         	
         }
+        //This function records the coordinates of a touch on the screen
         function doTouchStart() {
         	event.preventDefault();
-        	
+        	//defines canvas_x as the label for the x coordinate of a screen touch
         	canvas_x = event.targetTouches[0].pageX;
+        	//defines canvas_y as the label for the y coordinate of a screen touch
         	canvas_y = event.targetTouches[0].pageY;
+        	//Puts the x and y coordinates of a screen touch in an alert box
         	alert("X=" + canvas_x + "Y=" + canvas_Y);
         
         }
+        //This function records the coordinates of a click on the screen
         function doMouseDown() {
+        	//defines canvas_x as the label for the x coordinate of a screen click
         	canvas_x = event.pageX;
+        	//defines canvas_y as the label for the y coordinate of a screen click
         	canvas_y = event.pageY;
+        	//Puts the x and y coordinates of a screen click in an alert box
         	alert("X=" + canvas_x + "Y=" + canvas_y);
         }
+        //This function stores the pixel data of a 10 by 10 square around the pixel you click or touch, then modifies it to save only the green pixel data
         function imagedata() {
+        	//defines imgData as the pixel data for a 10 by 10 square around the point that is clicked or touched
         	var imgData=context.getImageData(canvas_x - 10,canvas_y - 10, 10, 10 )
+        	//defines data as a label for the actual pixel data of imgData
         	var data = imgData.data;
+        	//this for loop tells the computer to only hold the green data from the 10 by 10 square
         	for (var i = 0, n = data.length; i < n; i += 4) {
+        		 // defines red pixel data to be zero
         		 data [i+0]=[i+0]-[i+0];
+        		 //defines green pixel data to stay normal
         		 data [i+1]=[i+1];
+        		 //defines blue pixel data to be zero
         		 data [i+2]=[i+2]-[i+2];
+        		 //keeps opacity normal
         		 data [i+3]=[i+3];
         	}
-        	context2.putImageData(imgData,10,70);
+        	//context2.putImageData(imgData,10,70);
+        	//This alert displays the modified data, the green values, for the pixels in an alert window
         	alert(data, 50,50);
         }
         	
        
       </script>
-      <canvas id="canvas2" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+      <canvas id="canvas2" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas><!--This is the second canvas-->
       	<script>
        	var canvas2 = document.getElementById('canvas2');//Tells the function to write on canvas2
        	var context2 = canvas2.getContext("2d");//Gives the computer the context to write on canvas2
@@ -217,7 +239,7 @@
 		
 		document.getElementById("data1").innerHTML = data1;
 	</script>-->
-      	<table border="1" style="width:100%">
+      	<table border="1" style="width:100%"><!--This creates a table where data can be displayed-->
       		<tr>
       			<td id="data1">$100</td>
       		</tr>
