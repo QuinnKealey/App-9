@@ -226,15 +226,16 @@
         	
        
       </script>
-      <canvas id="canvas2" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas><!--This is the second canvas-->
+      <!--<canvas id="canvas2" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas><!--This is the second canvas-->
+      <p id="output"></p>
       	<script>
       	var array = [data];
-      	document.getElementById("canvas2").innerHTML = array[0];
-       	var canvas2 = document.getElementById('canvas2');//Tells the function to write on canvas2
-       	var context2 = canvas2.getContext("2d");//Gives the computer the context to write on canvas2
-       	context2.font = '20pt Calibri';//sets the font for text written on canvas2
-       	context2.fillStyle = "black";//sets the font color
-       	context2.fillText("Pixel Data Here", 10, 20);//Tells the computer what to write on the canvas, and where
+      	document.getElementById("output").innerHTML = array[24];
+       	//var canvas2 = document.getElementById('canvas2');//Tells the function to write on canvas2
+       	//var context2 = canvas2.getContext("2d");//Gives the computer the context to write on canvas2
+       	//context2.font = '20pt Calibri';//sets the font for text written on canvas2
+       	//context2.fillStyle = "black";//sets the font color
+       	//context2.fillText("Pixel Data Here", 10, 20);//Tells the computer what to write on the canvas, and where
 	 </script>
 	<!--<script>
 		var data1 = data[i+1];
