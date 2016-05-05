@@ -150,6 +150,11 @@
      </div><!-- /page -->
      </body>
  <body onLoad=initialise()>
+ 	 <p id="output"></p>
+ 	<script>
+ 	var array = ["chicken", "pasta", "Cheeseburger"];
+      	document.getElementById("output").innerHTML = array[3];
+ 	</script>
  	
   <div data-role="page" id="page2">
     <div data-role="header">
@@ -227,10 +232,7 @@
        
       </script>
       <!--<canvas id="canvas2" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas><!--This is the second canvas-->
-      <p id="output"></p>
-      	<script>
-      	var array = ["chicken", "pasta", "Cheeseburger"];
-      	document.getElementById("output").innerHTML = array[3];
+      	<!--<script>
        	//var canvas2 = document.getElementById('canvas2');//Tells the function to write on canvas2
        	//var context2 = canvas2.getContext("2d");//Gives the computer the context to write on canvas2
        	//context2.font = '20pt Calibri';//sets the font for text written on canvas2
