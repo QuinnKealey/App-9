@@ -15,7 +15,7 @@
   Authors in chronological order of contribution:
   Author 1: Timothy E. Riedel
   Author 2: Quinn Kealey
-  Author 3: Amy
+  Author 3: Amy Grossman
   Author 4: Sarah 
   
   References:
@@ -26,10 +26,10 @@
   http://stackoverflow.com/questions/11929099/html5-canvas-drawimage-ratio-bug-ios
   
   Brief Description of Goal of Code:
-  blah, blah, blah,
+  to take a picture and analyse the RBG data in a ROI
  
   Known Issues:
-  blah, blah, blah, blah, hi
+  the app is not finished, the data doesn't display correctly.
 -->
 
  <head>
@@ -121,7 +121,9 @@
     } // end of the else statement if file in NOT an image
   }); // end of the fileInput.addEventListener function
  } // end of the window.onload function
+ var imgData;
  </script>
+ <!-- added variable -->
  </head>
 <head> 
       <title>Hello World</title>  
@@ -141,8 +143,10 @@
 
 	<div data-role="content">	
 		<p>Welcome to DIY Diagnostics touch-analysis software.</p>
+		<p>Press the button to continue with the app, then take or select a picture.  After the picture is uploaded tap or click the area you want to analyze.</p>
 		<a href="#page2" data-role="button">Press to move on</a></html>
 	</div><!-- /content -->
+	<!-- added some instructions on how to go through the app -->
 
 	<div data-role="footer" data-position="fixed">
 		<p>This is the footer!</p>
@@ -150,13 +154,7 @@
      </div><!-- /page -->
      </body>
  <body onLoad=initialise()>
- 	 <p id="output"></p>
- 	<script>
- 	var array = ["chicken", "pasta", "Cheeseburger"];
-      	document.getElementById("output").innerHTML = array[3];
- 	</script>
- 	
-  <div data-role="page" id="page2">
+ <div data-role="page" id="page2">
     <div data-role="header">
     <h1>Touch Analysis</h1></div><!-- /header -->
     <div data-role="content">	
@@ -231,27 +229,16 @@
         	
        
       </script>
-      <!--<canvas id="canvas2" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas><!--This is the second canvas-->
-      	<!--<script>
-       	//var canvas2 = document.getElementById('canvas2');//Tells the function to write on canvas2
-       	//var context2 = canvas2.getContext("2d");//Gives the computer the context to write on canvas2
-       	//context2.font = '20pt Calibri';//sets the font for text written on canvas2
-       	//context2.fillStyle = "black";//sets the font color
-       	//context2.fillText("Pixel Data Here", 10, 20);//Tells the computer what to write on the canvas, and where
-	 </script>
-	<!--<script>
-		var data1 = data[i+1];
-		
-		document.getElementById("data1").innerHTML = data1;
-	</script>-->
-      	<!--<table border="1" style="width:100%"><!--This creates a table where data can be displayed-->
-      		<!--<tr>
-      			<td id="data1">$100</td>
+      <!-- deleted second canvas and some commented script -->
+	
+      	<table border="1" style="width:100%"><!--This creates a table where data can be displayed-->
+      		<tr>
+      			<td id="data1">This is the table where the RGB data should go.</td>
       		</tr>
-      	</table>-->
-     
-
-    </div><!-- /content -->
+      	</table>
+     </div>
+     <!-- /content -->
+     <!-- un commented out the table and added text -->
     <div data-role="footer" data-position="fixed">
       <p>DIY Diagnostics</p>
     </div><!-- /footer -->
