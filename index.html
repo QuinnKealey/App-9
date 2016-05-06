@@ -216,17 +216,18 @@
         	//this for loop tells the computer to only hold the green data from the 10 by 10 square
         	for (var i = 0, n = data.length; i < n; i += 4) {
         		 // defines red pixel data to be zero
-        		 data [i+0]=[i+0]-[i+0];
+        	//	 data [i+0]=[i+0]-[i+0];
         		 //defines green pixel data to stay normal
         		 data [i+1]=[i+1];
         		 //defines blue pixel data to be zero
-        		 data [i+2]=[i+2]-[i+2];
+        	//	 data [i+2]=[i+2]-[i+2];
         		 //keeps opacity normal
-        		 data [i+3]=[i+3]-[i+3];
+        	//	 data [i+3]=[i+3]-[i+3];
         	}
         	//context2.putImageData(imgData,10,70);
         	//This alert displays the modified data, the green values, for the pixels in an alert window
-        	alert(data/data.length,50,50);
+        	alert( "Here you go fool " + data, 50,50);
+        	//alert(data/data.length,50,50);
         }
         	
        
