@@ -15,7 +15,7 @@
   Authors in chronological order of contribution:
   Author 1: Timothy E. Riedel
   Author 2: Quinn Kealey
-  Author 3: Amy
+  Author 3: Amy Grossman
   Author 4: Sarah 
   
   References:
@@ -26,10 +26,10 @@
   http://stackoverflow.com/questions/11929099/html5-canvas-drawimage-ratio-bug-ios
   
   Brief Description of Goal of Code:
-  Take a photo and analyze pixels for RGB values.
+  to take a picture and analyse the RBG data in a ROI
  
   Known Issues:
-  blah, blah, blah, blah, hi
+  the app is not finished, the data doesn't display correctly.
 -->
 
  <head>
@@ -44,7 +44,6 @@
  <script>
   var docMod = document.lastModified; // gets last modified date and time of the index.html file
   console.log("This file last modified  " + docMod); // displays last modified date and time in the javascipt browser console 
-
 /* detectVerticalSquash & drawImageIOSFix = are functions that are critical due to a flaw in the iPhone camera software that squishes any photos displayed on an HTML5 canvas element. https://github.com/stomita/ios-imagefile-megapixel
 */
  function detectVerticalSquash(img) {
@@ -71,12 +70,10 @@
   var ratio = (py / ih);
   return (ratio===0)?1:ratio;
  }
-
  function drawImageIOSFix(ctx, img, sx, sy, sw, sh, dx, dy, dw, dh) {
   var vertSquashRatio = detectVerticalSquash(img);
   ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh / vertSquashRatio);
  }
-
 /* window.onload necessary to keep javascripts from running before the app gets a chance to load entirely. */
  window.onload = function() {
   var fileInput = document.getElementById('fileInput');
@@ -98,10 +95,8 @@
           /*This finally draws the image onto the first drawing canvas. The specific canvas is referred to by "context". This is established down in the HTML part of the file just under the first <canvas> tag. If we weren't worried about fixing an iPhone bug we would use context.drawImage(image, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500) instead of drawImageIOSFix */
         
           drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
-
           /*  +++++++++++++++ BEGIN IMAGE PROCESSING +++++++++++++++ */
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
           
           
@@ -121,7 +116,9 @@
     } // end of the else statement if file in NOT an image
   }); // end of the fileInput.addEventListener function
  } // end of the window.onload function
+ var imgData;
  </script>
+ <!-- added variable -->
  </head>
 <head> 
       <title>Hello World</title>  
@@ -141,8 +138,10 @@
 
 	<div data-role="content">	
 		<p>Welcome to DIY Diagnostics touch-analysis software.</p>
+		<p>Press the button to continue with the app, then take or select a picture.  After the picture is uploaded tap or click the area you want to analyze.</p>
 		<a href="#page2" data-role="button">Press to move on</a></html>
 	</div><!-- /content -->
+	<!-- added some instructions on how to go through the app -->
 
 	<div data-role="footer" data-position="fixed">
 		<p>This is the footer!</p>
@@ -150,13 +149,7 @@
      </div><!-- /page -->
      </body>
  <body onLoad=initialise()>
- 	 <p id="output"></p>
- 	<script>
- 	var array = ["chicken", "pasta", "Cheeseburger"];
-      	document.getElementById("output").innerHTML = array[3];
- 	</script>
- 	
-  <div data-role="page" id="page2">
+ <div data-role="page" id="page2">
     <div data-role="header">
     <h1>Touch Analysis</h1></div><!-- /header -->
     <div data-role="content">	
@@ -216,41 +209,20 @@
         	//this for loop tells the computer to only hold the green data from the 10 by 10 square
         	for (var i = 0, n = data.length; i < n; i += 4) {
         		 // defines red pixel data to be zero
-        	//	 data [i+0]=[i+0]-[i+0];
+        		 data [i+0]=[i+0]-[i+0];
         		 //defines green pixel data to stay normal
         		 data [i+1]=[i+1];
         		 //defines blue pixel data to be zero
-        	//	 data [i+2]=[i+2]-[i+2];
+        		 data [i+2]=[i+2]-[i+2];
         		 //keeps opacity normal
-        	//	 data [i+3]=[i+3]-[i+3];
+        		 data [i+3]=[i+3]-[i+3];
         	}
         	//context2.putImageData(imgData,10,70);
         	//This alert displays the modified data, the green values, for the pixels in an alert window
-        	alert( "Here you go fool " + data, 50,50);
-        	//alert(data/data.length,50,50);
+        	alert(data/data.length,50,50);
         }
         	
        
-      </script>
-      <!--<canvas id="canvas2" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas><!--This is the second canvas-->
-      	<!--<script>
-       	//var canvas2 = document.getElementById('canvas2');//Tells the function to write on canvas2
-       	//var context2 = canvas2.getContext("2d");//Gives the computer the context to write on canvas2
-       	//context2.font = '20pt Calibri';//sets the font for text written on canvas2
-       	//context2.fillStyle = "black";//sets the font color
-       	//context2.fillText("Pixel Data Here", 10, 20);//Tells the computer what to write on the canvas, and where
-	 </script>
-	<!--<script>
-		var data1 = data[i+1];
-		
-		document.getElementById("data1").innerHTML = data1;
-	</script>-->
-      	<!--<table border="1" style="width:100%"><!--This creates a table where data can be displayed-->
-      		<!--<tr>
-      			<td id="data1">$100</td>
-      		</tr>
-      	</table>-->
-     
       </script>
       <!-- deleted second canvas and some commented script -->
 	
@@ -259,10 +231,9 @@
       			<td id="data1">This is the table where the RGB data should go.</td>
       		</tr>
       	</table>
+     </div>
      <!-- /content -->
      <!-- un commented out the table and added text -->
-   
-    </div><!-- /content -->
     <div data-role="footer" data-position="fixed">
       <p>DIY Diagnostics</p>
     </div><!-- /footer -->
